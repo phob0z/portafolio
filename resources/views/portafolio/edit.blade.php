@@ -5,13 +5,13 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-            <div class=" card-header card-body d-flex justify-content-between align-items-center">
+                <div class=" card-header card-body d-flex justify-content-between align-items-center">
                     Actualización de un Portafolio
                     <a href="{{route('show',$portafolio)}}" class="btn btn-danger btn-sm">Regresar</a>
                 </div>
                 <div class="card-body">
 
-                    <form action="{{route('update',$portafolio)}}" method="POST">
+                    <form action="{{route('update',$portafolio)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
@@ -25,7 +25,7 @@
                         <div class="form-group row mb-3">
                             <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Descripción</label>
                             <div class="col-sm-10">
-                            <textarea class="form-control" name="descripcion" id="exampleFormControlTextarea1" rows="3" >{{$portafolio->descripcion}}</textarea>
+                                <textarea class="form-control" name="descripcion" id="exampleFormControlTextarea1" rows="3">{{$portafolio->descripcion}}</textarea>
                             </div>
                         </div>
                         <div class="form-group row mb-3">
@@ -37,13 +37,13 @@
                         <div class="form-group row mb-3">
                             <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Imagen</label>
                             <div class="col-sm-10">
-                                <input type="text" name="imagen" class="form-control form-control-sm" id="colFormLabelSm" value="{{$portafolio->imagen}}">
+                                <input type="file" class="form-control" id="inputGroupFile01" name="imagen">
                             </div>
                         </div>
                         <div class="form-group row mb-3">
                             <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Vídeo</label>
                             <div class="col-sm-10">
-                                <input type="text" name="video"  class="form-control form-control-sm" id="colFormLabelSm" value="{{$portafolio->url}}">
+                                <input type="text" name="video" class="form-control form-control-sm" id="colFormLabelSm" value="{{$portafolio->url}}">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Actualizar</button>
@@ -55,6 +55,3 @@
     <br>
 
     @endsection
-
-
-
